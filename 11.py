@@ -1,18 +1,16 @@
 from itertools import product
 
-arr = product('АЕПСТУХ', repeat=7)
-c = 0
+arr = sorted(product('УДАЧ', repeat=5))
+n = 1
 
-for idx, val in enumerate(arr):
+for val in arr:
     val = ''.join(val)
 
-    if idx < 999:
+    if val[0] not in 'УА':
         continue
 
-    for x in 'АЕПСТУХ':
-        if x*2 in val:
-            break
-    else:
-        c += 1
+    if val == 'УДАЧА':
+        print(n)  # 333
 
-print(c)  # 326592
+    n += 1
+

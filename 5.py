@@ -1,25 +1,11 @@
-from itertools import permutations
+from itertools import product
 
-arr = permutations('АТТЕСТАТ', 8)
-s = set()
+arr = sorted(product('ЛИСЁНОК', repeat=5))
 
-for i in arr:
-    i2 = ''
-    for x in i:
-        if x in 'ЕА':
-            i2 += '0'
-        else:
-            i2 += '1'
-
-    if '101' in i2:
+for idx, val in enumerate(arr):
+    if val.count('Ё') < 2:
         continue
-    if '010' in i2:
+    if val[0] == 'О':
         continue
-    if i2.startswith('01') or i2.startswith('10'):
-        continue
-    if i2.endswith('01') or i2.endswith('10'):
-        continue
-
-    s.add(i)
-
-print(len(s))  # 60
+    if val[1] == 'К':
+        print(idx + 1, val)  # 15387

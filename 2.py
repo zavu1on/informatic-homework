@@ -1,19 +1,4 @@
-from itertools import permutations
+a = 3 * 8 * 4 * 8 * 4 * 8 * 4
+b = 8 * 4 * 8 * 4 * 8 * 4 * 8
 
-arr = permutations('ОДЕКОЛОН')
-c = 0
-s = set()
-
-for i in arr:
-    for idx, val in enumerate(i):
-        try:
-            next = i[idx + 1]
-
-            if val == next:
-                break
-        except IndexError:
-            pass
-    else:
-        s.add(''.join(i))
-
-print(len(s))  # 2400
+print(a + b)  # 360448

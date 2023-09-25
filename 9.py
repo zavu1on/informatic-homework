@@ -1,19 +1,12 @@
 from itertools import product
 
-arr = product('ОБЩЕСТВ', repeat=5)
+arr = product('ПРОЛИВ', repeat=6)
 c = 0
 
 for i in arr:
-    i = ''.join(i)
-
-    if i[0] in 'ЩБ':
-        continue
-    if not i.endswith('ВВ'):
-        continue
-    if 'ЕВ' in i or 'ВЕ' in i:
-        continue
-
-    if 'ТБ' in i:
+    if 'П' in i:
         c += 1
 
-print(c)  # 11
+print(c)  # 31031
+
+print(1 * 6 * 6 * 6 * 6 * 6 * 5)  # 38880

@@ -1,15 +1,17 @@
 from itertools import product
 
-arr = product('ЗЕРКАЛО', repeat=6)
-c = 0
+arr = sorted(product('ЕПСУХ', repeat=5))
+n = 1
 
 for i in arr:
     i = ''.join(i)
 
-    if 1 <= i.count('К') <= 4:
-        i2 = i.replace('К', '')
+    if i[-1] not in 'ПСХ':
+        continue
 
-        if len(set(i2)) == len(i2):
-            c += 1
+    if i == 'УСПЕХ':
+        print(n)  # 1293
+        break
 
-print(c)  # 12570
+    n += 1
+

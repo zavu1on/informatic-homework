@@ -1,14 +1,6 @@
-from itertools import product
+from math import factorial
 
-arr = product('01234567', repeat=4)
-c = 0
+P1 = factorial(12)
+P2 = factorial(8)
 
-for i in arr:
-    if i[0] == '0' or int(i[0]) % 2 != 0:
-        continue
-
-    i = ''.join(i)
-    if i == ''.join(sorted(i, reverse=True)):
-        c += 1
-
-print(c)  # 129
+print(P1 - P2)  # 478961280
