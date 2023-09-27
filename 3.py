@@ -1,11 +1,9 @@
-from itertools import product
+def f(s):
+    while '111' in s:
+        s = s.replace('111', '2', 1)
+        s = s.replace('222', '1', 1)
+    return s
 
-arr = product('САКУРА', repeat=5)
-c = 0
 
-for i in arr:
-    if i.count('А') <= 1:
-        if i.count('У') <= 1:
-            c += 1
-
-print(c)  # 2538
+for n in range(35, 45):
+    print(f('1' * n), n)  # 41
