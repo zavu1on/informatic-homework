@@ -1,10 +1,5 @@
-a = '5' * 10 + '7' * 10
-i = len(a)
-b = ''
+with open('data/k7-44.txt') as file:
+    f = file.read().strip()
 
-while i > 0:
-    c = a[i - 1]
-    b += c
-    i -= 3
-
-print(b)  # 7777555
+f = f.replace('A', ' ').replace('B', ' ').split()
+print(len(max(f)))  # 11
