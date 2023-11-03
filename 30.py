@@ -14,17 +14,14 @@ def is_prime(n):
     return True
 
 
-for idx, i in enumerate(range(5336748, 5336835)):
-    if is_prime(i):
+for idx, i in enumerate(range(194441, 196501)):
+    if is_prime(i) and i % 100 == 93:
         print(idx + 1, i)
 
 """
-6 5336753
-14 5336761
-42 5336789
-50 5336797
-54 5336801
-66 5336813
-84 5336831
-86 5336833
+753 195193
+1053 195493
+1153 195593
+1453 195893
+1753 196193
 """

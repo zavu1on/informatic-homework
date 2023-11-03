@@ -1,6 +1,5 @@
 from math import sqrt
 
-
 def is_prime(n):
     if n == 2:
         return True
@@ -14,17 +13,10 @@ def is_prime(n):
     return True
 
 
-for idx, i in enumerate(range(5336748, 5336835)):
-    if is_prime(i):
-        print(idx + 1, i)
+c = 0
+for i in range(3661, 33626):
+    k = i ** 0.5
+    if k == int(k) and is_prime(k):
+        c += 1
 
-"""
-6 5336753
-14 5336761
-42 5336789
-50 5336797
-54 5336801
-66 5336813
-84 5336831
-86 5336833
-"""
+print(c)  # 25

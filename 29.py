@@ -1,5 +1,7 @@
 from math import sqrt
 
+arr = []
+
 
 def is_prime(n):
     if n == 2:
@@ -14,17 +16,15 @@ def is_prime(n):
     return True
 
 
-for idx, i in enumerate(range(5336748, 5336835)):
+for idx, i in enumerate(range(2532000, 2532161)):
     if is_prime(i):
-        print(idx + 1, i)
+        arr.append((idx + 1, i))
 
+for i in arr[::3]:
+    print(*i)
 """
-6 5336753
-14 5336761
-42 5336789
-50 5336797
-54 5336801
-66 5336813
-84 5336831
-86 5336833
+8 2532007
+84 2532083
+114 2532113
+158 2532157
 """
