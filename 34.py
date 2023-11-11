@@ -1,19 +1,34 @@
-for i in range(2, 10001):
-    arr = [1]
+def func(a, b):
+    s = ''
+    while a != 0:
+        s += str(a % b)
+        a //= b
+    return s[::-1]
 
-    for j in range(2, int(i ** 0.5) + 1):
-        if i % j == 0:
-            arr.append(j)
 
-            if i // j != j:
-                arr.append(i // j)
+for i in range(2003, 2023 ** 3 * 10 + 1):
+    s = str(i)
+    f = False
 
-    if sum(arr) == i:
-        print(i, len(arr))
+    for idx, val in enumerate(s):
+        try:
+            if val == '2' and s[idx + 3] == '3':
+                f = True
+                break
+        except IndexError:
+            break
 
-"""
-6 3
-28 5
-496 9
-8128 13
-"""
+    if not f:
+        continue
+
+    a = func(i, 3)
+    if a != a[::-1]:
+        continue
+    a = func(i, 9)
+    if a != a[::-1]:
+        continue
+    a = func(i, 27)
+    if a != a[::-1]:
+        continue
+
+    print(i, sum(map(int, oct(i)[2:])))

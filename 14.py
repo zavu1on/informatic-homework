@@ -1,28 +1,25 @@
-resp = []
-m = 0
+i = 3
 
-for i in range(394441, 394506):
-    arr = [1, i]
+while 15309 <= i ** 9 <= 10 ** 9:
+    n = i ** 9
 
-    for j in range(2, int(i ** 0.5) + 1):
-        if i % j == 0:
-            arr.append(j)
+    if n % 2 == 0:
+        print(i, n // 2)
+    else:
+        for x in range(3, int(n ** 0.5) + 1, 2):
+            if n % x == 0:
+                print(i, n // x)
+                break
 
-            if i // j != j:
-                arr.append(i // j)
+    i += 1
 
-    if len(arr) > m:
-        resp = [(
-            i, arr
-        )]
-        m = len(arr)
-    elif len(arr) == m:
-        resp += [(
-            i, arr
-        )]
-
-m = min(resp, key=lambda el: el[0])
-print(len(m[1]), *sorted(m[1], reverse=True)[:2])
 """
-48 394450 197225
+3 6561
+4 131072
+5 390625
+6 5038848
+7 5764801
+8 67108864
+9 129140163
+10 500000000
 """
