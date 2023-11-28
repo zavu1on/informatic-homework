@@ -1,27 +1,29 @@
-def f(a, b):
-    s = ''
-    while a != 0:
-        s += str(a % b)
-        a //= b
-    return s == s[::-1]
+# 3 -> 20 -> 30
 
+exclude = [12]
+start = 3
+end = 20
+arr = [0] * 1000
+arr[start] = 1
 
-for i in range(20, 2023 ** 3, 10):
-    s = str(i)
-    if '2' not in s or s[-1] != '0':
-        continue
-    if s.find('2') > s.rfind('0'):
+for i in range(start, end):
+    if i in exclude:
         continue
 
-    if f(i, 3) and f(i, 7):
-        print(i, sum(map(int, oct(i)[2:])))
+    arr[i + 1] += arr[i]
+    arr[i * 2] += arr[i]
 
-"""
-8200 3
-233920 15
-532900 18
-3316520 25
-24919360 25
-184827640 25
-...
-"""
+a = arr[end]
+
+start = 20
+end = 30
+arr = [0] * 1000
+arr[start] = 1
+
+for i in range(start, end):
+    arr[i + 1] += arr[i]
+    arr[i * 2] += arr[i]
+
+b = arr[end]
+
+print(a * b)  # 12
