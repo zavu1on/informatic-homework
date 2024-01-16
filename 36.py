@@ -1,19 +1,12 @@
-from functools import lru_cache
+from math import floor
 
+with open('data/9-J1.txt') as file:
+    arr = []
+    for i in file.readlines():
+        i = i.replace(',', '.')
+        arr += list(map(float, i.split()))
 
-@lru_cache
-def f(n):
-    if n == 0:
-        return 1
-    if n % 2 != 0:
-        return 1 + f(n - 1)
-    return f(n // 2)
+a1 = [i for i in arr if i < 0]
+mean = floor(sum(a1) / len(a1))
 
-
-for i in range(1, 500):
-    if f(i) == 4:
-        print(i)
-
-# 7 * 2 ** n
-# 11 * 2 ** n
-# 13 * 2 ** n
+print(mean, floor(max(arr)))  # -498 1000
