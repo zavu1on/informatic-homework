@@ -1,15 +1,9 @@
-from functools import lru_cache
+n = 5 * 36 ** 7 + 6 ** 10 - 36
+count = 0
 
+while n:
+    if n % 6 == 5:
+        count += 1
+    n //= 6
 
-@lru_cache
-def f(n):
-    if n < 4 or n % 2 == 1:
-        return n
-
-    return f(n - 1) + f(n - 2) + f(n - 3)
-
-
-for n in range(2009):
-    f(n)
-
-print(f(2008) - f(2006))  # 4012
+print(count)  # 9
