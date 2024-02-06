@@ -1,14 +1,12 @@
-for i in range(1, 26):
-    j = i
-    n = ''
-    while i != 0:
-        n += str(i % 6)
-        i //= 6
-    if n[-1] == '4':
-        print(j)
+def f(x):
+    y = str(x % 4)
+    y += str(x % 2)
+    y += str(x % 3)
 
-"""
-4
-24
-25
-"""
+    return int(y)
+
+
+for i in range(10, 100):
+    if f(i) == 311:
+        print(i)  # 19
+        break
