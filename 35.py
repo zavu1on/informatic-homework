@@ -1,18 +1,8 @@
-def f(r):
-    b = bin(r)[2:]
+print('a c b F')
 
-    if b.endswith('01') and b[:-2].count('1') % 2 == 0:
-        return True
+for a in range(2):
+    for b in range(2):
+        for c in range(2):
+            f = (a and (not c)) or ((not a) and b and c)
 
-    if b.endswith('10') and b[:-2].count('1') % 2 != 0:
-        return True
-
-    return False
-
-
-count = 0
-for r in range(16, 33):
-    if not f(r):
-        count += 1
-
-print(count)  # 13
+            print(a, c, b, int(f))
