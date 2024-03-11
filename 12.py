@@ -1,9 +1,15 @@
-with open('data/26-J4.txt') as file:
-    N, = map(int, file.readline().split())
-    arr = list(map(int, file.readlines()))
-arr.sort()
+def f(A):
+    for x in range(1, 300):
+        for y in range(1, 300):
+            r = (x & A == 0) and (x & 58 != 0) and (x & 22 == 0)
 
-K = int(N * 0.1)
-arr = arr[K:-K]
+            if r:
+                return False
 
-print(sum(arr), max(arr))  # 440962 91
+    return True
+
+
+for A in range(1, 300):
+    if f(A):
+        print(A)  # 40
+        break

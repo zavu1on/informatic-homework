@@ -1,18 +1,14 @@
-from math import ceil
+def f(A):
+    for x in range(1, 300):
+        for y in range(1, 300):
+            r = (x & A != 0) and (x & 58 == 0) and (x & 22 == 0)
 
-with open('data/26-s1.txt') as file:
-    N, = map(int, file.readline().split())
-    arr = list(map(int, file.readlines()))
-arr.sort()
+            if r:
+                return False
 
-with_sale = [i for i in arr if i > 100]
-sm = sum([i for i in arr if i <= 100])
+    return True
 
-K = len(with_sale) // 2
-for idx, val in enumerate(with_sale):
-    if idx + 1 <= K:
-        sm += val * 0.1
-    else:
-        sm += val
 
-print(ceil(sm))  # 378148
+for A in range(1, 300):
+    if f(A):
+        print(A)  # 62

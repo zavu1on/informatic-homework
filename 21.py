@@ -4,7 +4,7 @@ def D(n, m):
 
 def f(A):
     for x in range(1, 500):
-        r = (D(x, A) <= D(x, 54) or D(x, 130)) and (A > 60)
+        r = (D(x, A) <= D(x, 54) or D(x, 130)) and (A > 110)
 
         if not r:
             return False
@@ -14,5 +14,5 @@ def f(A):
 
 for A in range(1, 500):
     if f(A):
-        print(A)  # 108
+        print(A)  # 130
         break

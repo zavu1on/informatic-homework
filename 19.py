@@ -1,14 +1,18 @@
-with open('data/26-j8.txt') as file:
-    N, = map(int, file.readline().split())
-    arr = list(map(int, file.read().split()))
-arr.sort()
+def D(n, m):
+    return n % m == 0
 
-a1 = arr[:int(N * 0.7)]
-b1 = arr[-int(N * 0.3):]
-s1 = int(sum(a1) * 0.7 + sum(b1) * 0.6)
 
-a2 = arr[:int(N * 0.5)]
-b2 = arr[int(N * 0.5):]
-s2 = int(sum(a2) * 0.6 + sum(b2) * 0.65)
+def f(A):
+    for x in range(1, 500):
+        r = ((not D(x, A)) or D(x, 36) and D(x, 126)) and (A > 1000)
 
-print(s1 - s2, int(max(b1) * 0.6))  # 63792 600
+        if not r:
+            return False
+
+    return True
+
+
+for A in range(1, 2000):
+    if f(A):
+        print(A)  # 1001
+        break
