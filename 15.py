@@ -1,15 +1,34 @@
-def f(A):
-    for x in range(1, 300):
-        for y in range(1, 300):
-            r = (x > 4) or (x + 2 < y) or (x ** 2 + y ** 2 < A)
+with open('data/27-15a.txt') as file:
+    N = int(file.readline())
+    arr = [int(i) for i in file.readlines()]
 
-            if not r:
-                return False
+ost = [0] * 14
+count = 0
 
-    return True
+for idx in range(5, len(arr)):
+    b = arr[idx - 5]
+    ost[b % 14] += 1
 
+    a = arr[idx]
+    j = (14 - a % 14) % 14
+    count += ost[j]
 
-for A in range(1, 300):
-    if f(A):
-        print(A)  # 53
-        break
+print(count)  # 8
+
+# -------------------------------------------
+with open('data/27-15b.txt') as file:
+    N = int(file.readline())
+    arr = [int(i) for i in file.readlines()]
+
+ost = [0] * 14
+count = 0
+
+for idx in range(5, len(arr)):
+    b = arr[idx - 5]
+    ost[b % 14] += 1
+
+    a = arr[idx]
+    j = (14 - a % 14) % 14
+    count += ost[j]
+
+print(count)  # 128567918

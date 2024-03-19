@@ -1,15 +1,6 @@
-def f(A):
-    for x in range(1, 300):
-        for y in range(1, 300):
-            r = ((x - 30 < A) and (15 - y < A)) or (x * (y + 3) > 60)
+with open('data/27-17a.txt') as file:
+    N = int(file.readline())
+    arr = [int(i) for i in file.readlines()]
 
-            if not r:
-                return False
-
-    return True
-
-
-for A in range(1, 300):
-    if f(A):
-        print(A)  # 15
-        break
+N = 7
+arr = [4, 14, 27, 39, 7, 2, 13]

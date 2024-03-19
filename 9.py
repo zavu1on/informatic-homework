@@ -1,14 +1,42 @@
-def f(A):
-    for x in range(1, 300):
-        for y in range(1, 300):
-            r = (x & 25 != 1) or ((x & 34 == 2) <= (x & A == 0))
+with open('data/27-9a.txt') as file:
+    N = int(file.readline())
+    arr = [int(i) for i in file.readlines()]
 
-            if not r:
-                return False
+tmp = None
+R = float('inf')
 
-    return True
+for idx in range(6, len(arr)):
+    b = arr[idx - 6]
+    if b % 2 != 0:
+        if not tmp:
+            tmp = b
+        else:
+            tmp = min(tmp, b)
 
+    a = arr[idx]
+    if a % 2 != 0 and tmp:
+        R = min(R, a * tmp)
 
-for A in range(1, 300):
-    if f(A):
-        print(A)  # 56
+print(R)  # 2465
+
+# ------------------------------------------
+with open('data/27-9b.txt') as file:
+    N = int(file.readline())
+    arr = [int(i) for i in file.readlines()]
+
+tmp = None
+R = float('inf')
+
+for idx in range(6, len(arr)):
+    b = arr[idx - 6]
+    if b % 2 != 0:
+        if not tmp:
+            tmp = b
+        else:
+            tmp = min(tmp, b)
+
+    a = arr[idx]
+    if a % 2 != 0 and tmp:
+        R = min(R, a * tmp)
+
+print(R)  # 121
